@@ -1,0 +1,29 @@
+.toast-wrap{
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      max-height: 1.3rem;
+   }
+   .toast-msg{
+      background-color: rgba(0,0,0,0.7);
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-size: 0.62rem;
+   }
+  .toastAnimate{
+      animation: toastKF 2s;
+  }
+  @keyframes toastKF{
+      0% {opacity: 0;}
+     25% {opacity: 1; z-index: 9999}
+     50% {opacity: 1; z-index: 9999}
+     75% {opacity: 1; z-index: 9999}
+     100% {opacity: 0; z-index: 0}
+  }

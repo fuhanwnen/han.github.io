@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>han.js测试</title>
+	<script src="./rem.js"></script>
+	<link rel="stylesheet" href="./han.css">
+	<link rel="stylesheet" href="./tosat.css">
+	<script src="./jskai.js"></script>
+	<script src="./han.js"></script>
+</head>
+<body>
+	<div class="countDown bgcolor"></div>
+	<div class="div bgcolor"><span>点击消失: 浏览器记录功能cookie</span>0000</div>
+	<ul class="ul bgcolor"></ul>
+	<div class="bgcolor"><span>随机数:</span> <span class="number"></span></div>
+	<div class="bgcolor">
+		<span>距离星期三还有:</span>
+		<span class="countdownOnWednesday"></span>
+	</div>
+	<!-- toast -->
+  	<div class="toast-wrap">
+        <span class="toast-msg"></span>
+    </div>
+    <input class="button" type="button" value="按钮">
+	<script>
+		//使用$获取单个元素
+		console.log($('.div'),'使用$获取单个元素');
+		//倒计时
+		han.countDown = '2018/1/31 18:00:00';
+		//获取url字段
+		console.log(han.getQueryString('han'),'获取url字段')
+		//打乱顺序
+		console.log(han.shuffle(me.list),'打乱顺序')
+		var html = '';
+		me.list.forEach( function(item) {
+			html += "<li>" + item.a + "</li>";
+		})
+		$('.ul').innerHTML = html;
+		//随机色
+		$$('.bgcolor').forEach( function(item) {
+			item.style.color = han.bgcolor();
+		})
+		$$('.ul > li').forEach( function(item) {
+			item.style.color = han.bgcolor();
+		})
+		console.log(han.bgcolor(),'随机色')
+		//随机数  (n - m)的随机范围
+		$('.number').innerHTML = parseInt(han.rndNum(5,15)*100)
+		//生成指定位数的随机整数  b个数 (n - m)的随机范围
+		console.log(han.randomNum(5,5,9),'随机数')
+		//浏览器储存数据
+		if(document.cookie = name){
+			$('.div').style.display = 'none'
+		}
+		$('.div').onclick = function() {
+			console.log('none')
+			$('.div').style.display = 'none';
+			document.cookie = name = '0';
+		}
+		//星期三10点抽奖倒计时
+		han.cardslide();
+		console.log(han.fmoney(25445411540.123456,6));
+		//toast
+		$('.button').addEventListener('click', function() {
+			han.toast('弹窗的数据');
+		})
+	</script>
+</body>
+</html>
